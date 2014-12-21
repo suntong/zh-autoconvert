@@ -1,10 +1,12 @@
 Source: zh-autoconvert
-Build-Depends: debhelper (>= 9), libgtk2.0-dev
+Build-Depends: debhelper (>= 9), hardening-wrapper
 Priority: optional
 Section: text
-Homepage: https://code.google.com/p/libhz/
 Maintainer: Tong Sun <suntong001@users.sourceforge.net>
 Standards-Version: 3.9.6
+Homepage: https://github.com/suntong001/zh-autoconvert
+Vcs-Git: https://github.com/suntong001/zh-autoconvert.git
+Vcs-Browser: https://github.com/suntong001/zh-autoconvert
 
 Package: zh-autoconvert
 Architecture: any
@@ -17,25 +19,3 @@ Description: Chinese HZ/GB/BIG5/UNI/UTF7/UTF8 encodings auto-converter
  incoming mail, automatically converting messages to the Chinese
  Encoding you want. 
  It can alse handle Unicode/UTF7/UTF8 now.
- .
-  Author: Yu Guanghui <ygh@debian.org>
-
-Package: libhz-dev
-Architecture: any
-Section: devel
-Depends: ${misc:Depends}, libhz0 (= ${binary:Version}), libc6-dev
-Description: Headers and static libraries for zh-autoconvert
- Contains the symlinks, headers, and object files needed to compile and
- link programs which use the zh-autoconvert library.
- .
-  Author: Yu Guanghui <ygh@debian.org>
-
-Package: libhz0
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Chinese encoding autoconvert library
- This library provide the Chinese encoding judge function, 
- and the HZ/GB/Big5/UNI/UTF7/UTF8 convert functions.
- .
-  Author: Yu Guanghui <ygh@debian.org>
