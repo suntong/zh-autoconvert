@@ -1,14 +1,8 @@
-zh-autoconvert (0.3.16-5) unstable; urgency=low
-
-  * Debianized upstream from scratch
-
- -- Tong Sun <suntong001@users.sourceforge.net>  Wed, 01 Jan 2014 13:16:05 -0500
-
 zh-autoconvert (0.3.16-4) unstable; urgency=low
 
   * New maintainer (Closes: #629015)
 
- -- Tong Sun <suntong001@users.sourceforge.net>  Sat, 21 Dec 2013 20:02:05 +0000
+ -- Tong Sun <suntong001@users.sourceforge.net>  Sun, 21 Dec 2014 01:01:25 -0500
 
 zh-autoconvert (0.3.16-3) unstable; urgency=low
 
