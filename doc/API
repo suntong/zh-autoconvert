@@ -1,0 +1,9 @@
+FIX ME: Add more example
+
+建议通过libhz提供的三个接口函数调用libhz库。
+1、j_code对编码进行判断
+2、hz_setup目前用来把内部转换模块加入搜索路径，将来可以加入外部模块。
+3、hz_search组合转换模块，初始化转换模块
+4、也可以调用hz_init重新初始化模快
+5、hz_convert执行转换
+

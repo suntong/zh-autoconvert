@@ -1,0 +1,113 @@
+修正一些依赖gcc扩展的特征，感谢 law at redhat.com的补丁程序。
+					Yu Guanghui <ygh@debian.org>
+					2004.03.22
+
+扩展b2g table, 感谢Hsieh Yu-T'ing <victor at cirx.org.anti-spam>的补丁程序.
+Autoconvert 0.3.14 Release.
+					Yu Guanghui <ygh@debian.org>
+					2003.12.12
+__
+更改License文件, 加入hztty代码的版权声明.
+Autoconvert 0.3.13 Release.
+
+					Yu Guanghui <ygh@debian.org>
+__
+Fixed hz_init() segment fault.
+					Yu Guanghui <ygh@debian.org>
+					2001.04.28
+__
+
+Add new function hz_init(), and rename search() to hz_search(), convert
+to hz_convert().
+					Yu Guanghui <ygh@debian.org>
+					2000.04.23
+__
+unicode fuctions fix again.
+					Yu Guanghui <ygh@debian.org>
+					2000.01.08
+__
+big5的uni转换模块修正,现在手工转换可以正常工作了.
+					于广辉
+					Yu guanghui <ygh@debian.org>
+					2000.11.28
+__
+基本完成新的转换框架, 通过广度优先算法自动组合适宜的转换模块.
+但是big5的uni模块有问题,需要进一步修改.
+					于广辉
+					Yu Guanghui <ygh@debian.org>
+					2000.11.28
+--
+加入一个xchat的gb/big5自动转码plugins。
+					于广辉
+					Yu Guanghui <ygh@debian.org>
+					2000.11.25
+__
+更新字符判断函数,Ha Shao<hashao@china.com>提供。
+增加指定输入字符功能
+
+					  于广辉
+					  Yu Guanghui <ygh@debian.org>
+					  2000.8.31
+__
+加入一个邮件MIME转换脚本,可以处理MIME编码的邮件主题和附件.
+感谢Anthory Fok<foka@debian.org>提供原始脚本.
+
+					     于广辉
+					     Yu Guanghui<ygh@dlut.edu.cn>
+					     2000.6.14
+__
+only split hzconvert to libhz
+					     于广辉
+                                             Yu Guanghui<ygh@dlut.edu.cn>
+                                             2000.1.5
+__
+改正了当输入大于8192字节时可能出现半个汉字的bug.
+重新使用hztty的hz2gb函数，原来的的函数不能正确处理大于8192字节的情况。
+把autogb,autob5合并到一个程序里面,用程序名区别。
+					      于广辉
+					      Yu Guanghui<ygh@dlut.edu.cn>
+					      1999.12.28
+__
+改进了GB/Big5的智能识别方法,在高频词统计的基础上增加了基于对汉字
+编码直接统计的备用识别方法.
+					      于广辉
+					      Yu Guanghui<ygh@dlut.edu.cn>
+					      1999.11.20
+__
+修复hz2gb函数中一个bug.
+hz到gb/big5转换正常了
+						
+					       于广辉
+					       Yu Guanghui<ygh@dlut.edu.cn>
+					       1999.10.21  
+--
+移植了 hztty-2.0的部分代码,直接进行函数调用,不需要外部转换程序了.
+重写了 hz到gb转换部分的代码,改成函数形势.
+没有用hztty的hz2gb程序,hztty的hztogb太繁琐,没有必要.
+
+						于广辉
+                                                Yu Guanghui<ygh@dlut.edu.cn>
+						1999.10.20
+--
+
+因为utf-convert的版权问题,所以在包里集成了hc用来做gb/big5编码转换.
+修复一个造成当有多个附件时(base64)无法解码的bug.
+
+						
+                                                于广辉
+                                                Yu Guanghui<ygh@dlut.edu.cn>
+						1999.10.14
+--
+前一阵debian chinese大家对使用GB,BIG5,HZ讨论了好长一段时间,就产生了
+写个程序自动完成hz,gb,chinese的转换的想法.不过这个程序写的比较匆忙,
+只是可以工作而以,肯定有不少bug的.而且只有在文章长度比较长的时候才能
+正确处理.等再过一段时间再改进吧,现在实在没时间了.
+
+需要utf-converter packages
+
+
+						于广辉
+						Yu Guanghui<ygh@dlut.edu.cn>
+						1999.5.29
+
+

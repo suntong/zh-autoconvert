@@ -1,0 +1,217 @@
+zh-autoconvert (0.3.16-5) unstable; urgency=low
+
+  * Debianized upstream from scratch
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Wed, 01 Jan 2014 13:16:05 -0500
+
+zh-autoconvert (0.3.16-4) unstable; urgency=low
+
+  * New maintainer (Closes: #629015)
+
+ -- Tong Sun <suntong001@users.sourceforge.net>  Sat, 21 Dec 2013 20:02:05 +0000
+
+zh-autoconvert (0.3.16-3) unstable; urgency=low
+
+  * Depand on libgtk2.0-dev instead of libgtk1.2-dev (Closes:Bug#516056) 
+
+ -- Yu Guanghui <ygh@debian.org>  Thu, 19 Feb 2009 20:10:00 +0800
+
+zh-autoconvert (0.3.16-2) unstable; urgency=medium
+
+  * Move architecture-dependent files to /usr/lib. (Closes:Bug#392406)
+
+ -- Yu Guanghui <ygh@debian.org>  Thu, 12 Oct 2006 11:33:41 +0800
+
+zh-autoconvert (0.3.16-1) unstable; urgency=low
+
+  * New upstream release
+  * Add exit(0) (Closes:Bug#355842)
+  * examples changed (Closes:Bug#334401)
+  * Cleanup fixed bugs (Closes:Bug#297142)
+
+ -- Yu Guanghui <ygh@debian.org>  Wed,  9 Aug 2006 17:34:24 +0800
+
+zh-autoconvert (0.3.14-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Apply patch by Andreas Jochens to fix FTBFS with gcc 4.0
+    (Closes: #297142)
+
+ -- Frank Lichtenheld <djpig@debian.org>  Sat,  6 Aug 2005 02:59:50 +0200
+
+zh-autoconvert (0.3.14-2) unstable; urgency=low
+
+  * patch for gcc-3.4. (closes:Bug#264156) 
+
+ -- Yu Guanghui <ygh@debian.org>  Sat,  7 Aug 2004 23:20:59 +0800
+
+zh-autoconvert (0.3.14-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Fri, 12 Dec 2003 21:15:42 +0800
+
+zh-autoconvert (0.3.13-4) unstable; urgency=low
+
+  * compiled with gcc-3.3. (closes:Bug#196469) 
+
+ -- Yu Guanghui <ygh@debian.org>  Sat,  7 Jun 2003 20:45:35 +0800
+
+zh-autoconvert (0.3.13-3) unstable; urgency=low
+
+  * Compiled the static library without  -fPIC.
+
+ -- Yu Guanghui <ygh@debian.org>  Wed, 18 Jul 2001 01:56:14 +0800
+
+zh-autoconvert (0.3.13-2) unstable; urgency=low
+
+  * Fixed zh-autoconvert Depend problem. 
+
+ -- Yu Guanghui <ygh@debian.org>  Tue, 17 Jul 2001 23:28:34 +0800
+
+zh-autoconvert (0.3.13-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Fri, 11 May 2001 21:22:39 +0800
+
+zh-autoconvert (0.3.12-2) unstable; urgency=low
+
+  * Change libhz0(>=$${Source-Version}) to libhz0 (>=0.3.12-2) 
+
+ -- Yu Guanghui <ygh@debian.org>  Tue,  1 May 2001 22:48:08 +0800
+
+zh-autoconvert (0.3.12-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Sat, 28 Apr 2001 09:58:08 +0800
+
+zh-autoconvert (0.3.11-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Mon, 23 Apr 2001 22:28:34 +0800
+
+zh-autoconvert (0.3.10-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Tue, 17 Apr 2001 21:24:11 +0800
+
+zh-autoconvert (0.3.9-3) unstable; urgency=low
+
+  *Added lintian overide file, make lintian happy. :) 
+  *Moved libhz0 from section text to libs, libhz-dev from text to devel.
+
+ -- Yu Guanghui <ygh@debian.org>  Tue, 20 Feb 2001 22:55:24 +0800
+
+zh-autoconvert (0.3.9-2) unstable; urgency=low
+
+  * Changed dh_makeshlibs at debian/rule, let zh-autoconvert always depend lastest libhz0.
+  * Compiled zh-autoconvert with shared libhz library, the old verison incorrectly complile zh-autoconvert with static libhz library.
+  * Add lost link (libhz.so -> libhz.so.0) to libhz-dev.
+
+ -- Yu Guanghui <ygh@debian.org>  Sun, 18 Feb 2001 21:34:18 +0800
+
+zh-autoconvert (0.3.9-1) unstable; urgency=high
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Tue,  6 Feb 2001 23:46:51 +0800
+
+zh-autoconvert (0.3.8-3) unstable; urgency=high
+
+  * Incorrectly close #Bug81083, should close #Bug81803. (closes:Bug#81803) 
+
+ -- Yu Guanghui <ygh@debian.org>  Thu, 11 Jan 2001 08:42:51 +0800
+
+zh-autoconvert (0.3.8-2) unstable; urgency=high
+
+  * Add build depend libgtk1.2-dev. (closes:Bug#81789,#81083) 
+
+ -- Yu Guanghui <ygh@debian.org>  Thu, 11 Jan 2001 00:00:33 +0800
+
+zh-autoconvert (0.3.8-1) unstable; urgency=high
+
+  * New upstream release
+
+ -- Yu Guanghui <ygh@debian.org>  Mon,  8 Jan 2001 18:09:19 +0800
+
+zh-autoconvert (0.3.7-3) testing unstable; urgency=high
+
+  * change version number from 0.3.7-2.2 to 0.3.7-3.
+
+ -- Yu Guanghui <ygh@debian.org>  Sun,  7 Jan 2001 18:50:47 +0800
+
+zh-autoconvert (0.3.7-2.2) unstable; urgency=high
+
+  * Fix utf8 conversion problem. 
+
+ -- Yu Guanghui <ygh@debian.org>  Sat,  6 Jan 2001 22:12:22 +0800
+
+zh-autoconvert (0.3.7-2.1) unstable; urgency=low
+ 
+  * Fix the translation table.(from Anthony Fok <foka@debian.org>).
+ 
+ -- Yu Guanghui <ygh@debian.org>  Sun, 24 Dec 2000 15:16:21 -0700
+
+zh-autoconvert (0.3.7-2) unstable; urgency=low
+
+  * Install xchat-autogb.so xchat-autob5.so to /usr/share/zh-autoconvert.
+
+ -- Yu Guanghui <ygh@debian.org>  Thu, 30 Nov 2000 10:27:20 +0800
+
+zh-autoconvert (0.3.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Split to three packages: zh-autoconvert,libhz0,libhz-dev
+
+ -- Yu Guanghui <ygh@debian.org>  Wed, 29 Nov 2000 21:34:22 +0800
+
+zh-autoconvert (0.3.6-2) unstable; urgency=low
+
+  * Add two example files. 
+
+ -- Yu Guanghui <ygh@debian.org>  Wed, 25 Oct 2000 22:06:37 +0800
+
+zh-autoconvert (0.3.6-1) unstable; urgency=low
+
+  * New upstream release
+  * Install new document "gbpercent.txt", "b5percent.txt", "400gb.txt",
+    "400b5.txt", and "percent.py".    
+
+ -- Yu Guanghui <ygh@debian.org>  Sat,  7 Oct 2000 12:43:05 +0800
+
+zh-autoconvert (0.3.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * [hzconvert/b2g_tables.c]: Corrected a few entries in the GB to Big5
+    table, e.g. zhi1/zhi4, zheng4, yu1, and the period (dot) vs. bullet.
+  * Install new document "libhz.txt".
+
+ -- Anthony Fok <foka@debian.org>  Wed, 16 Aug 2000 00:56:41 -0600
+
+zh-autoconvert (0.3.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * New example files shed.big5 and shed.gb.  :-)
+
+ -- Anthony Fok <foka@debian.org>  Tue, 28 Dec 1999 00:34:44 -0700
+
+zh-autoconvert (0.3.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Standards-Version: 3.1.1--Added Build-Depends in debian/rules.
+
+ -- Anthony Fok <foka@debian.org>  Wed, 22 Dec 1999 22:49:10 -0700
+
+zh-autoconvert (0.3.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Anthony Fok <foka@debian.org>  Sun,  7 Nov 1999 16:13:06 -0700
+
+Local variables:
+mode: debian-changelog
+End:

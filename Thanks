@@ -1,0 +1,20 @@
+Anthony Fok <foka@debian.org>
+Fixed the shed.big5
+2001.2.18
+__
+Anthony Fok <foka@debian.org>
+Translate table fix.
+2001.1.8
+__
+Ha Shao <hashao@china.com>
+Add new judging functions. ;)
+It's better than mine. 
+Thanks very much.
+2000.8.31
+--
+Ha Shao <hashao@china.com>
+Add get option support for autoconvert
+--
+Anthony Fok <foka@debian.org>
+Packaged autoconvert for debian
+Fix the big2gb table

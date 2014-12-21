@@ -1,0 +1,51 @@
+		libhz 使用简介
+		
+libhz提供了gb/big5/hz自动识别和gb,big5,hz,utf8,utf7,unicode之间的转换函数。
+其中：
+include/hz.h   /*头文件*/
+lib/libhz.a    /*静态库*/
+lib/libhz.so   /*共享库*/
+
+Example: gb/big/hz识别
+
+incode=j_code(pbuf,count);请不要直接使用j_code3等.
+pbuf是要是别的字符串，count是要识别的字符数。
+返回值在hz.h里面定义。
+
+
+Example： gb->big5转换
+
+方法一: 直接调用转换函数
+...
+gb2big_init();   /*初始化*/
+
+...		/*循环,读到pbuf里,然后转换*/
+gb2big(pbuf,&count,0) 
+...		/*循环结束*/
+
+其中 pbuf是指向要转换的字符串的指针，pbuf前保留一个字符的空间,count是要转换的
+字符数，0是指定使用第几个buffer.
+
+使用buffer的原因是为了防止pbuf的最后出现半个字，当出现半个字时，这半个字就会在
+buffer里面保存，下次调用gb2big时，这半个字就会被添加到前面。注意，可以有16个buffer
+(0-15).
+其他函数使用方法也类似。
+
+方法二: 使用hz_search()和hz_convert()组合
+推荐使用这种方法, search可以组合最合适的转换函数, convert完成转换过程.
+
+hz_setup();
+初始化模块数据库, 将来会允许调用外部模块.
+...
+dist=search(incode,outcode,8);
+dist是需要组合的转换函数的个数, 如果等于0表明无法完成转换. 8表示最多组合8个
+转换函数.
+...
+ps=convert(pbuf,&count,0);
+完成转换过程, convert可以自行顺序调用组合好的函数.
+pbuf是输入串, count为转换字符数, 0表示使用内部寄存单元号码.
+半个字符问题convert可以自行处理.
+
+
+						Yu Guanghui
+						2001.04.23

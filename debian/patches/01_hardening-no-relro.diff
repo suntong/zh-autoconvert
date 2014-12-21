@@ -1,0 +1,45 @@
+Index: zh-autoconvert-0.3.16/Makefile
+===================================================================
+--- zh-autoconvert-0.3.16.orig/Makefile	2014-01-04 16:48:02.316146600 -0500
++++ zh-autoconvert-0.3.16/Makefile	2014-01-04 16:48:02.308146600 -0500
+@@ -1,6 +1,10 @@
+ 
++# use "dpkg-buildflags"
++DPKG_EXPORT_BUILDFLAGS = 1
++include /usr/share/dpkg/buildflags.mk
++
+ CC=gcc
+-CFLAG=-O2 -g -Wall -Iinclude
++CFLAG=-O2 -g -Wall -Iinclude $(CPPFLAGS) $(CFLAGS) $(LDFLAGS)
+ LIBS= -Llib -lhz
+ 
+ .PHONY: all hzlib clean install-home install
+Index: zh-autoconvert-0.3.16/contrib/xchat-plugins/Makefile
+===================================================================
+--- zh-autoconvert-0.3.16.orig/contrib/xchat-plugins/Makefile	2014-01-04 16:48:02.316146600 -0500
++++ zh-autoconvert-0.3.16/contrib/xchat-plugins/Makefile	2014-01-04 16:48:02.308146600 -0500
+@@ -1,5 +1,7 @@
+-LDFLAGS = -g
+-CFLAGS = -Wall
++# use "dpkg-buildflags"
++DPKG_EXPORT_BUILDFLAGS = 1
++include /usr/share/dpkg/buildflags.mk
++
+ CC = gcc
+ LIBS= -L../../lib
+ 
+Index: zh-autoconvert-0.3.16/hzconvert/Makefile
+===================================================================
+--- zh-autoconvert-0.3.16.orig/hzconvert/Makefile	2014-01-04 16:48:02.316146600 -0500
++++ zh-autoconvert-0.3.16/hzconvert/Makefile	2014-01-04 16:48:56.652146600 -0500
+@@ -1,5 +1,9 @@
++# use "dpkg-buildflags"
++DPKG_EXPORT_BUILDFLAGS = 1
++include /usr/share/dpkg/buildflags.mk
++
+ CC=gcc -I../include
+-CFLAGS=-O2 -Wall -g -D_REENTRANT
++CFLAGS+=-O2 -Wall -g -D_REENTRANT $(LDFLAGS)
+ SHARED_LIB=libhz.so
+ SHARED_LIB_MAJOR=$(SHARED_LIB).0
+ SHARED_LIB_MINOR=$(SHARED_LIB_MAJOR).0

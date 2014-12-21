@@ -1,0 +1,27 @@
+
+			AutoConvert
+
+    AutoConvert是一个汉字编码自动识别转换的程序,目前他可以自动识别GB/Big5/HZ
+    编码,可以转换gb/big5/hz/uni/utf7/utf8编码.当文本超过1000字时,对GB/Big5的
+    识别准确率接近100%.HZ识别率也近似100%.
+
+    这个程序最初的目的,也是它现在最大用途就是配合procmail对电子邮件进行汉字
+    编码自动转换.
+
+    AutoConvert现在还很简单,不能处理GB/Big5/HZ混合编码.
+
+    AutoConvert的用法很简单,在autoconvert目录下,make就可以了.
+    make install可以把 autogb,autob5 拷贝到 $HOME/bin目录.
+    按procmail.example设置procmail就可以了.
+
+    autogb,autob5都直接从stdin读,输出到stdout, 如果不加参数, 将自动判断输入
+    编码,然后进行转换.也可以通过命令行指定输入、输出编码。
+
+
+    URL: 
+    banyan.dlut.edu.cn/~ygh
+    ftp.dlut.edu.cn/pub/PEOPLE/saka/
+
+    							于广辉<ygh@debian.org>
+
+							2000.11.29

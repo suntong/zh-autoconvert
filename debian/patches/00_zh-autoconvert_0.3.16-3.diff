@@ -1,0 +1,119 @@
+--- zh-autoconvert-0.3.16.orig/Makefile
++++ zh-autoconvert-0.3.16/Makefile
+@@ -30,12 +30,12 @@
+ 	ln -s $(HOME)/bin/autogb $(HOME)/bin/autob5
+ 	chmod 755 $(HOME)/bin/autogb 
+ install:
+-	install -m 755 autogb $(DESTDIR)/usr/bin
+-	install -m 755 lib/libhz.so.0.0 $(DESTDIR)/usr/lib
++	install -s -m 755 autogb $(DESTDIR)/usr/bin
++	install -s -m 755 lib/libhz.so.0.0 $(DESTDIR)/usr/lib
+ 	cd $(DESTDIR)/usr/lib;ln -s  libhz.so.0.0 libhz.so.0
+ 	cd $(DESTDIR)/usr/lib;ln -s  libhz.so.0 libhz.so
+-	install -m 755 lib/libhz.a $(DESTDIR)/usr/lib
+-	install -m 755 contrib/xchat-plugins/xchat-autogb.so $(DESTDIR)/usr/share/zh-autoconvert
+-	install -m 755 contrib/xchat-plugins/xchat-autob5.so $(DESTDIR)/usr/share/zh-autoconvert
++	install -s -m 755 lib/libhz.a $(DESTDIR)/usr/lib
++	install -s -m 755 contrib/xchat-plugins/xchat-autogb.so $(DESTDIR)/usr/lib/zh-autoconvert
++	install -s -m 755 contrib/xchat-plugins/xchat-autob5.so $(DESTDIR)/usr/lib/zh-autoconvert
+ 	install -m 644 include/*.h  $(DESTDIR)/usr/include
+-	ln -s autogb $(DESTDIR)/usr/bin/autob5
++	cd $(DESTDIR)/usr/bin; ln -s autogb $(DESTDIR)/usr/bin/autob5
+--- zh-autoconvert-0.3.16.orig/autogb.c
++++ zh-autoconvert-0.3.16/autogb.c
+@@ -142,5 +142,7 @@
+ 		}
+ 		pbuf=&buff[2];
+ 	}while((count=read(0,pbuf,MAX_BUFFER))>0);
++
+ 	fflush(0);
++	exit(0);
+ }
+--- zh-autoconvert-0.3.16.orig/contrib/xchat-plugins/Makefile
++++ zh-autoconvert-0.3.16/contrib/xchat-plugins/Makefile
+@@ -5,8 +5,8 @@
+ 
+ all:xchat-autogb.so xchat-autob5.so
+ xchat-autogb.so:	xchat-autogb.c
+-	$(CC) $(LDFLAGS) $(CFLAGS) $(LIBS) -I. -DSKIPCONFIG -fPIC -shared -Wl,-soname,xchat-autogb.so -o $@ $< -lhz -lc `gtk-config --cflags`
++	$(CC) $(LDFLAGS) $(CFLAGS) $(LIBS) -I. -DSKIPCONFIG -fPIC -shared -Wl,-soname,xchat-autogb.so -o $@ $< -lhz -lc `pkg-config --cflags gtk+-2.0`
+ xchat-autob5.so:	xchat-autob5.c
+-	$(CC) $(LDFLAGS) $(CFLAGS) $(LIBS) -I. -DSKIPCONFIG -fPIC -shared -Wl,-soname,xchat-autob5.so -o $@ $< -lhz  -lc `gtk-config --cflags`
++	$(CC) $(LDFLAGS) $(CFLAGS) $(LIBS) -I. -DSKIPCONFIG -fPIC -shared -Wl,-soname,xchat-autob5.so -o $@ $< -lhz  -lc `pkg-config --cflags gtk+-2.0`
+ clean:
+ 	rm -rf *~ xchat-autogb.so xchat-autob5.so
+--- zh-autoconvert-0.3.16.orig/contrib/xchat-plugins/xchat-autob5.c
++++ zh-autoconvert-0.3.16/contrib/xchat-plugins/xchat-autob5.c
+@@ -88,8 +88,6 @@
+ 			PrintText(sess," Big\n");
+ #endif
+ 			break;
+-		default:
+-			;
+ 	}
+ 
+ 	XP_CALLNEXT(chanmsg_next, serv, channel, from, text, a, c);
+@@ -127,8 +125,6 @@
+ 			PrintText(sess," Big\n");
+ #endif
+ 			break;
+-		default:
+-			;
+ 	}
+ 
+ 	XP_CALLNEXT(privmsg_next, serv, from, ip, text, a, c);
+--- zh-autoconvert-0.3.16.orig/contrib/xchat-plugins/xchat-autogb.c
++++ zh-autoconvert-0.3.16/contrib/xchat-plugins/xchat-autogb.c
+@@ -88,8 +88,6 @@
+ 			PrintText(sess," Big\n");
+ #endif
+ 			break;
+-		default:
+-			;
+ 	}
+ 
+ 	XP_CALLNEXT(chanmsg_next, serv, channel, from, text, a, c);
+@@ -127,8 +125,6 @@
+ 			PrintText(sess," Big\n");
+ #endif
+ 			break;
+-		default:
+-			;
+ 	}
+ 
+ 	XP_CALLNEXT(privmsg_next, serv, from, ip, text, a, c);
+--- zh-autoconvert-0.3.16.orig/hzconvert/Makefile
++++ zh-autoconvert-0.3.16/hzconvert/Makefile
+@@ -1,22 +1,26 @@
+ CC=gcc -I../include
+-CFLAGS=-O2 -Wall -g
++CFLAGS=-O2 -Wall -g -D_REENTRANT
+ SHARED_LIB=libhz.so
+ SHARED_LIB_MAJOR=$(SHARED_LIB).0
+ SHARED_LIB_MINOR=$(SHARED_LIB_MAJOR).0
+ OBJS=b2g.o b2u.o g2u.o hz2gb.o b2g_tables.o b2u_tables.o g2u_tables.o io.o unicode.o judge.o judge3.o gbpercent.o b5percent.o search.o 
++STATIC_OBJS=b2g.static.o b2u.static.o g2u.static.o hz2gb.static.o b2g_tables.static.o b2u_tables.static.o g2u_tables.static.o io.static.o unicode.static.o judge.static.o judge3.static.o gbpercent.static.o b5percent.static.o search.static.o 
+ 
+-%.o: %.c
++%.o:%.c
+ 	$(CC) -fPIC $(CFLAGS) -c $<
+ 
+-all: libhzconvert
++%.static.o:%.c
++	$(CC)  $(CFLAGS) -c $< -o $*.static.o
+ 
+-libhzconvert: $(OBJS)
+-	ar rs  ../lib/libhz.a $(OBJS)
++all: share-lib static-lib
++
++share-lib: $(OBJS)
+ 	gcc -fPIC -shared -Wl,-soname,$(SHARED_LIB_MAJOR) -o ../lib/$(SHARED_LIB_MINOR)  $(OBJS) -ldl
+ 	rm -f ../lib/$(SHARED_LIB_MAJOR)
+ 	rm -f ../lib/$(SHARED_LIB)
+ 	cd ../lib;ln -s $(SHARED_LIB_MINOR) $(SHARED_LIB_MAJOR)
+ 	cd ../lib;ln -s $(SHARED_LIB_MAJOR) $(SHARED_LIB)
+-
++static-lib: $(STATIC_OBJS)
++	ar rs  ../lib/libhz.a $(STATIC_OBJS)
+ clean:
+ 	rm -f *.o *~ ../lib/lib*
