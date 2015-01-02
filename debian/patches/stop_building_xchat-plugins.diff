@@ -1,0 +1,43 @@
+Description: stop building xchat-plugins 
+  Do not build xchat-plugins any more
+Author: Tong Sun <suntong001@users.sourceforge.net>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: zh-autoconvert/Makefile
+===================================================================
+--- zh-autoconvert.orig/Makefile
++++ zh-autoconvert/Makefile
+@@ -5,7 +5,7 @@ LIBS= -Llib -lhz
+ 
+ .PHONY: all hzlib clean install-home install
+ 
+-all: autob5 autogb hzlib  xchat-plugins
++all: autob5 autogb hzlib
+ 
+ autob5: autogb
+ 	rm -f autob5;ln -s autogb autob5
+@@ -15,13 +15,12 @@ autogb-static:autogb.c  hzlib
+ 	$(CC) $(CFLAG) autogb.c lib/libhz.a -o autogb
+ hzlib:
+ 	cd hzconvert;make
+-xchat-plugins: 
+-	cd contrib/xchat-plugins;make
++
+ clean:
+ 	rm -f autob5 autogb *.o *~
+ 	rm -f include/*~
+ 	cd hzconvert;make clean
+-	cd contrib/xchat-plugins;make clean
++
+ install-home:
+ 	[ ! -f $(HOME)/bin ] || mkdir $(HOME)/bin
+ 	rm -f $(HOME)/bin/autob5
+@@ -35,7 +34,5 @@ install:
+ 	cd $(DESTDIR)/usr/lib;ln -s  libhz.so.0.0 libhz.so.0
+ 	cd $(DESTDIR)/usr/lib;ln -s  libhz.so.0 libhz.so
+ 	install -s -m 755 lib/libhz.a $(DESTDIR)/usr/lib
+-	install -s -m 755 contrib/xchat-plugins/xchat-autogb.so $(DESTDIR)/usr/lib/zh-autoconvert
+-	install -s -m 755 contrib/xchat-plugins/xchat-autob5.so $(DESTDIR)/usr/lib/zh-autoconvert
+ 	install -m 644 include/*.h  $(DESTDIR)/usr/include
+ 	cd $(DESTDIR)/usr/bin; ln -s autogb $(DESTDIR)/usr/bin/autob5
