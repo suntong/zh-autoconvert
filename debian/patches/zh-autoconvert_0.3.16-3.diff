@@ -1,3 +1,10 @@
+Description: patches from zh-autoconvert_0.3.16-3
+ All patches from old zh-autoconvert_0.3.16-3
+Author: Tong Sun <suntong001@users.sourceforge.net>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+===================================================================
 --- zh-autoconvert-0.3.16.orig/Makefile
 +++ zh-autoconvert-0.3.16/Makefile
 @@ -30,12 +30,12 @@
