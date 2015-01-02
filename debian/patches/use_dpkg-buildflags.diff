@@ -1,0 +1,30 @@
+Description: use dpkg-buildflags instead of hardening-wrapper
+ To fix build-depends-on-obsolete-package build-depends: hardening-wrapper => use dpkg-buildflags instead
+Author: Tong Sun <suntong001@users.sourceforge.net>
+Forwarded: no
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: zh-autoconvert/Makefile
+===================================================================
+--- zh-autoconvert.orig/Makefile
++++ zh-autoconvert/Makefile
+@@ -1,7 +1,8 @@
+ 
+ CC=gcc
+-CFLAG=-O2 -g -Wall -Iinclude
+-LIBS= -Llib -lhz
++CFLAG= `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wall -Iinclude
++LDFLAGS = `dpkg-buildflags --get LDFLAGS`
++LIBS= $(LDFLAGS) -Llib -lhz
+ 
+ .PHONY: all hzlib clean install-home install
+ 
+@@ -14,7 +15,7 @@ autogb:autogb.c  hzlib
+ autogb-static:autogb.c  hzlib
+ 	$(CC) $(CFLAG) autogb.c lib/libhz.a -o autogb
+ hzlib:
+-	cd hzconvert;make
++	cd hzconvert; make CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)"
+ 
+ clean:
+ 	rm -f autob5 autogb *.o *~
