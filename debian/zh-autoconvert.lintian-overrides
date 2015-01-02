@@ -1,0 +1,6 @@
+# inherited from zh-autoconvert_0.3.16-3
+zh-autoconvert: binary-without-manpage *
+# this is a small package which includes the runtime and development libraries
+zh-autoconvert: non-dev-pkg-with-shlib-symlink usr/lib/libhz.so*
+# therefore package name will not be the same as the library file
+zh-autoconvert: package-name-doesnt-match-sonames libhz0
